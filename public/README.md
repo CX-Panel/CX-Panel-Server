@@ -1,2 +1,21 @@
-# CX-Panel-Server
-临时主页，此后这里放置面板前端编译好后的主页文件。
+#  项目介绍
+
+初心面板前端项目
+
+## install
+```bush
+// install dependencies
+npm install
+```
+## Run
+### Development
+```bush
+// For the first time, run init to create index.html
+npm run init
+npm run dev
+```
+### Production(Build)
+```bush
+npm run build
+```
+

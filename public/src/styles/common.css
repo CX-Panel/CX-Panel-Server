@@ -1,0 +1,19 @@
+body {
+    background-color: #eef1f5!important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+
+
+/* 重置 */
+
+.ivu-btn-large {
+    padding: 6px 15px 7px 15px!important;
+}
+label {
+    margin-bottom: 0!important;
+}
