@@ -1,0 +1,104 @@
+swagger: "2.0"
+info:
+  title: beego Test API
+  description: beego has a very cool tools to autogenerate documents for your API
+  version: 1.0.0
+  termsOfService: http://beego.me/
+  contact:
+    email: astaxie@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+basePath: /api
+paths:
+  /admin/{uid}:
+    get:
+      tags:
+      - admin
+      description: 获得管理员uid
+      operationId: AdminController.获得信息
+      parameters:
+      - in: path
+        name: uid
+        description: uid
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.User'
+        "403":
+          description: :uid 不存在
+  /admin/login:
+    get:
+      tags:
+      - admin
+      description: 管理员登录系统
+      operationId: AdminController.登录
+      parameters:
+      - in: query
+        name: username
+        description: 用户名
+        required: true
+        type: string
+      - in: query
+        name: password
+        description: 密码
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} 登录成功'
+        "403":
+          description: 登录失败
+  /admin/logout:
+    get:
+      tags:
+      - admin
+      description: 注销当前管理员的会话
+      operationId: AdminController.登出
+      responses:
+        "200":
+          description: '{string} 注销成功'
+definitions:
+  models.Object:
+    title: Object
+    type: object
+    properties:
+      ObjectId:
+        type: string
+      PlayerName:
+        type: string
+      Score:
+        type: integer
+        format: int64
+  models.Profile:
+    title: Profile
+    type: object
+    properties:
+      Address:
+        type: string
+      Age:
+        type: integer
+        format: int64
+      Email:
+        type: string
+      Gender:
+        type: string
+  models.User:
+    title: User
+    type: object
+    properties:
+      Id:
+        type: string
+      Password:
+        type: string
+      Profile:
+        $ref: '#/definitions/models.Profile'
+      Username:
+        type: string
+tags:
+- name: admin
+  description: |
+    关于管理员的操作
